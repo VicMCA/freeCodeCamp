@@ -4,37 +4,56 @@
 <main>
   <head>
     
-    <link rel="stylesheet" href="">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=7">
     <title>Cat Photo App</title>
 
-    <style></style>
+    <style>
+      h2 {
+        font-family: "Lobster", monospace;
+      }
+      .big-names {
+         color: steelblue;
+      }
+      .main-text {
+         color: #202020;
+      }
+      .sub-text {
+         color: #404040;
+      }
+      p {
+        font-size: 16px;
+      }
+      .smaller-image {
+        width: 100px;
+      }
+
+    </style>
 
   </head>
 
   <body>
-    <h2 style="color: steelblue;">
+    <h2 class="big-names">
     CatPhotoApp
-    </h2>
-  
+    </h2>  
     
-    <p>Click here to view more <a href="#">cat photos</a>.</p>
+    <p class="big-names">Click here to view more <a href="#">cat photos</a>.</p>
 
-    <a href="#"><img src="https://www.bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+    <a href="#"><img class="smaller-image" src="https://www.bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
 
     <div>
 
-      <p>Things cats love:</p>
+      <p class="main-text">Things cats love:</p>
 
-      <ul>
+      <ul class="sub-text">
         <li>cat nip</li>
         <li>laser pointers</li>
         <li>lasagna</li>
       </ul>
     
-      <p>Top 3 things cats hate:</p>
+      <p class="main-text">Top 3 things cats hate:</p>
     
-      <ol>
+      <ol class="sub-text">
         <li>flea treatment</li>
         <li>thunder</li>
         <li>other cats</li>
@@ -42,7 +61,7 @@
 
     </div>
 
-    <form action="https://www.freecatphotoapp.com/submit-cat-photo">
+    <form class="main-text" action="https://www.freecatphotoapp.com/submit-cat-photo">
 
       <input type="text" placeholder="cat photo URL" required>
       <button type="submit">Submit</button>
