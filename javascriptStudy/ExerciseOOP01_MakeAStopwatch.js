@@ -54,8 +54,8 @@ function main() {
         output: process.stdout,
     });
 
-    let swUse = function() {
-        readline.question('Stopwatch controls = start, stop, reset, show, quit \n>> ', command => {
+    swUse = () => {
+        readline.question('Stopwatch controls:\nstart, stop, reset, show, close \n>> ', command => {
             if (command === 'start') {
                 sw.start();
                 swUse();
@@ -68,9 +68,11 @@ function main() {
             } else if (command === 'show') {
                 console.log(sw.runTime);
                 swUse();
-            } else if (command === 'quit') {
+            } else if (command === 'close') {
                 readline.close();
                 process.stdin.destroy();
+                console.log('Stopwatch closed')
+                process.exit(0);
             } else {
                 console.log('Invalid input.')
                 swUse();

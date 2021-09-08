@@ -11,7 +11,7 @@ function main() {
     console.log(number);
     // number is not updated
 
-    let obj = { value: 10 };singonio
+    let obj = { value: 10 };
 
     function objIncrease(obj) {
         obj.value++;
