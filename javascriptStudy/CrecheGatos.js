@@ -45,7 +45,6 @@ class Gato {
         this.gatoNome = infoPacote[gatoNome];
         this.gatoSexo = infoPacote[gatoSexo];
         this.gatoIdade = infoPacote[gatoIdade];
-        this.gatoRaca = infoPacote[gatoRaca];
         this.gatoPelo = infoPacote[gatoPelo];
         this.tipoRacao = infoPacote[tipoRacao];
         this.dataEntrada = infoPacote[dataEntrada];
@@ -80,7 +79,7 @@ class Gato {
 
 
 function main() {
-    const read = require('readline-sync');
+    const read = require('readline-sync')
 
     const gatosLista = [], donosLista = [], infoPacote = {};
     let resposta = '';
@@ -95,9 +94,11 @@ function main() {
         switch (resposta) {
             case '1':
                 infoPacote = cadastro();
-                eval("gato_" + infoPacote[gatoNome] + " = " + infoPacote[gatoNome]) = new Gato(infoPacote);
-                gatosLista.push(infoPacote[gatoNome]);
-                donosLista.push(infoPacote[donoNome]);
+                eval("gato_" + infoPacote['gatoNome'] + " = new Gato(infoPacote)");
+                // ^ eval() funciona como devido
+                gatosLista.push(infoPacote['gatoNome']);
+                donosLista.push(infoPacote['donoNome']);
+                // ^ push funcionando como devido
                 break;
             case '2':
                 escolhaGato();
@@ -110,7 +111,9 @@ function main() {
                 menuInicial();
                 break;
         }
-    }    
+    }
+    
+    menuInicial();
 }
 
 
@@ -135,9 +138,9 @@ function sair() {
 
 
 function cadastro() {
-    
+    // Status: funcionando
     let infoDono = { donoNome: '', donoCPF: '', donoFone: '', donoEmail: '' };
-    let infoGato = { gatoNome: '', gatoSexo: '', gatoIdade: '', gatoRaca: '', gatoPelo: '', tipoRacao: '' };
+    let infoGato = { gatoNome: '', gatoSexo: '', gatoIdade: '', gatoPelo: '', tipoRacao: '' };
     let infoData = { dataEntrada: '', dataSaida: '' };
     let infoSaude = { necessVet: '', isCastrado: '', isVermifugado: '', familiares: '' };
 
@@ -152,7 +155,6 @@ function cadastro() {
         gatoNome: 'Qual o nome do/da gatinho(a)? ',
         gatoSexo: 'Qual o sexo? ',
         gatoIdade: 'Quantos anos tem ele/ela? ',
-        gatoRaca: 'Qual a raça, caso tenha? ',
         gatoPelo: 'Qual o tipo de pelagem? ',
         tipoRacao: 'Que tipo de ração ele/ela come? ',
     };
@@ -181,6 +183,7 @@ function cadastro() {
 
 
 function questoesCadastro(infoDado, questoesDado) {
+    // Status: funcionando
     const read = require('readline-sync');
 
     for (let key in infoDado) {
