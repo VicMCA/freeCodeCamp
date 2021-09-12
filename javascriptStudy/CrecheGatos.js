@@ -27,6 +27,8 @@ Requerimentos >>
 
 class Gato {
     constructor(infoPacote) {
+        const read = require('readline-sync');
+
         let fome = 10;
         let briga = false;
         let triste = false;
@@ -53,7 +55,20 @@ class Gato {
         this.isCastrado = infoPacote[isCastrado];
         this.isVermifugado = infoPacote[isVermifugado];
         this.familiares = infoPacote[familiares];
-        this.alimentar = (tipoRacao) => {
+        
+        this.alimentar = () => {
+            numeroRacao = read.question('Qual ração deseja dar?\n[1] Comum, [2] Castrados, [3] Medicinal >> ');
+            switch(numeroRacao) {
+                case '1':
+                    tipoRacao = 'comum';
+                    break;
+                case '2':
+                    tipoRacao = 'castrados';
+                    break;
+                case '3':
+                    tipoRacao = 'medicinal';
+                    break;
+            }
             if (tipoRacao == this.tipoRacao) {
                 return fome = 10;
             } else {racaoTipo
@@ -62,46 +77,142 @@ class Gato {
                 return doente += 1;
             };
         };
+        
         this.brincar = () => {
             return tedio = false;
         };
+        
         this.carinho = () => {
             return triste = false;
         };
+        
         this.apartar = () => {
             return briga = false;
         };
+        
         this.dormir = () => {
             return sono = 0;
         };
     }
 }
 
+/*
+cat ascii
+
+   |\---/|
+   | ,_, |
+    \_`_/-..----.
+ ___/ `   ' ,""+ \  Art by "sk"
+(__...'   __\    |`.___.';
+  (_,...'(_,.`__)/'.....+
+
+
+ ,_     _
+ |\\_,-~/
+ / _  _ |    ,--.
+(  @  @ )   / ,-'
+ \  _T_/-._( (
+ /         `. \
+|         _  \ |
+ \ \ ,  /      |
+  || |-_\__   /
+ ((_/`(____,-'
+
+
+  ,-.       _,---._ __  / \
+ /  )    .-'       `./ /   \
+(  (   ,'            `/    /|
+ \  `-"             \'\   / |
+  `.              ,  \ \ /  |
+   /`.          ,'-`----Y   | Art by Hayley Jane Wakenshaw
+  (            ;        |   '
+  |  ,-.    ,-'         |  /
+  |  | (   |            | /
+  )  |  \  `.___________|/
+  `--'   `--'
+
+
+           __..--''``---....___   _..._    __
+ /// //_.-'    .-/";  `        ``<._  ``.''_ `. / // /
+///_.-' _..--.'_    \                    `( ) ) // //
+/ (_..-' // (< _     ;_..__               ; `' / ///
+ / // // //  `-._,_)' // / ``--...____..-' /// / //
+
+
+
+       _                        
+       \`*-.                    
+        )  _`-.                 
+       .  : `. .                
+       : _   '  \               
+       ; *` _.   `*-._          
+       `-.-'          `-.       
+         ;       `       `.     
+         :.       .        \    
+         . \  .   :   .-'   .   
+         '  `+.;  ;  '      :   Art by Blazej Kozlowski
+         :  '  |    ;       ;-. 
+         ; '   : :`-:     _.`* ;
+      .*' /  .*' ; .*`- +'  `*' 
+      `*-*   `*-*  `*-*'
+
+
+
+            _,'|             _.-''``-...___..--';)
+           /_ \'.      __..-' ,      ,--...--'''
+          <\    .`--'''       `     /'
+           `-';'               ;   ; ;
+     __...--''     ___...--_..'  .;.'
+    (,__....----'''       (,..--''   Felix Lee
+*/
+const gatosLista = [], donosLista = [], infoPacote = {};
 
 function main() {
-    const read = require('readline-sync')
+    const read = require('readline-sync');
 
-    const gatosLista = [], donosLista = [], infoPacote = {};
     let resposta = '';
-
-    console.log('Olá, bem-vindo(a) ao Gatotel!');
+/*
+              _,'\               _.-''``-...___..--';)
+             /ŋ   \'.      __..-'        ,--...--'''
+            '¯     . `''''´  .          /'
+ .-.         `-';'          `-._     ; ;
+(   )    __...--''     ___...--_..`  .;.'
+ `-´~~~ (,__....----'''       (,....-'
+*/
+    console.log("              _,'\\               _.-''``-...___..--';)\n"+
+    "             /ŋ   \\'.      __..-'        ,--...--'''\n"+
+    "            '¯     . `''''´  .          /'\n"+
+    " .-.         `-';'          `-._     ; ;\n"+
+    "(   )    __...--''     ___...--_..`  .;.'\n"+
+    " `-´~~~ (,__....----'''       (,....-'\n"+
+    "🐱 Olá, bem-vindo(a) ao Gatotel! 🐱");
+    // ASCII art funcionando super fofamente <3
+    // Arte original por Felix Lee, e modificada por mim
     
     function menuInicial() {
         console.log(' o que deseja fazer?');
         
         resposta = read.question('[1] Cadastrar bichano\n[2] Administrar bichano\n[3] Sair');
         
+            /* Dados do infoPacote:
+            donoNome, donoCPF, donoFone, donoEmail
+            gatoNome, gatoSexo, gatoIdade, gatoPelo, tipoRacao
+            dataEntrada, dataSaida
+            necessVet, isCastrado, isVermifugado, familiares
+            */
+
         switch (resposta) {
             case '1':
                 infoPacote = cadastro();
-                eval("gato_" + infoPacote['gatoNome'] + " = new Gato(infoPacote)");
+                eval("const gato_" + infoPacote['gatoNome'] + " = new Gato(infoPacote);");
+                const gato_tonin = new Gato(infoPacote);
                 // ^ eval() funciona como devido
                 gatosLista.push(infoPacote['gatoNome']);
                 donosLista.push(infoPacote['donoNome']);
                 // ^ push funcionando como devido
                 break;
             case '2':
-                escolhaGato();
+                escolhaGato(gatosLista);
                 break;
             case '3':
                 sair();
@@ -117,18 +228,64 @@ function main() {
 }
 
 
-function acoesDatabase() {
+function acoesGatos(qualGato) {
+    /* Ações: alimentar, brincar, carinho, apartar, dormir, chamar dono, chamar vet */
+    const read = require('readline-sync');
+    
+    console.log("Ações disponíveis:");
+
+    acaoGato = read.question("[1] Ver dados, [2] Alimentar, [3] Brincar, [4] Dar carinho," +
+    " [5] Apartar briga, [6] Colocar para dormir, [7] Chamar dono, [8] Chamar veterinário," +
+    " [9] Escolher outro gato, [0] Voltar para o início");
+
+    switch (acaoGato) {
+        case '1':
+            eval("gato_" + qualGato + ".alimentar();");
+            break;
+        case '2':
+            eval("gato_" + qualGato + ".alimentar();");
+            break;
+        case '3':
+            break;
+        case '4':
+            break;
+        case '5':
+            break;
+        case '6':
+            break;
+        case '7':
+            break;
+        case '8':
+            break;
+        case '9':
+            break;
+        case '0':
+            break;
+        default:
+            break;
+    }
 
 }
 
 
-function acoesGatos() {
+function escolhaGato(gatosLista) {
+    /* Dados do infoPacote:
+    donoNome, donoCPF, donoFone, donoEmail
+    gatoNome, gatoSexo, gatoIdade, gatoPelo, tipoRacao
+    dataEntrada, dataSaida
+    necessVet, isCastrado, isVermifugado, familiares
+    */
+    const read = require('readline-sync');
 
-}
+    console.log('Confira abaixo a lista de bichanos cadastrados:\n' + gatosLista);
+    qualGato = read.question('Com qual deles deseja interagir? Digite o nome exatamente como exibido: ');
 
-
-function escolhaGato() {
-
+    if (qualGato in gatosLista) {
+        acoesGatos(qualGato);
+    } else {
+        console.log('Nome informado inválido.');
+        escolhaGato(gatosLista);
+    }
 }
 
 
