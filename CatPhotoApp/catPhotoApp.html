@@ -9,23 +9,71 @@
     <title>Cat Photo App</title>
 
     <style>
-      h2 {
-        font-family: "Lobster", monospace;
+      body {
+        font-family: 'Roboto',sans-serif;
+        min-height: 400px;
+        background-image: 
+            url('https://images.unsplash.com/photo-1595113316349-9fa4eb24f884?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1504&q=80');
+        background-color: #222;
+        background-attachment: scroll;
+        background-position: center 30%;
+        background-repeat: no-repeat;
+        }
+      .container {
+        text-align: center;
+        padding: 40px;
+        height: 40vh;
       }
       .big-names {
-         color: steelblue;
+        font-family: 'Roboto',sans-serif;
+        font-weight: 400;
+        padding-top: 0%;
+        color:#6ab6ab;
+        margin: 0 0 5px;
       }
       .main-text {
-         color: #202020;
+        font-size: 10pt;
+        color: #555 !important
       }
       .sub-text {
-         color: #404040;
-      }
-      p {
-        font-size: 16px;
+        font-size: 10pt;
+        color: #777 !important;
       }
       .smaller-image {
+        border-radius: 50%;
+        border-color: #444;
+        border-width: 3px;
+        border-style: solid;
         width: 100px;
+        margin: 10px;
+      }
+      .center-content {
+        flex-basis: content;
+        align-content: center;
+        align-items: center;
+        text-align: left;
+        max-width: 20%;
+        min-width: 150px;
+        padding: 0.0em 1.5em 0.0em 1.5em;
+        border-radius: 20px;
+        border-color: #ed8;
+        border-width: 2px;
+        border-style: dotted;
+        margin: auto;;
+      }
+      .form-submit {
+        margin: 10px;
+      }
+      #cat-photo-form {
+        font-family: monospace;
+        font-size: 9pt;
+        color:#689;
+      }
+      [type='radio'] {
+        margin: 10px 5px 10px 10px
+      }
+      [type='checkbox'] {        
+        margin: 10px 5px 10px 10px
       }
 
     </style>
@@ -33,18 +81,12 @@
   </head>
 
   <body>
-    <h2 class="big-names">
-    CatPhotoApp
-    </h2>  
-    
+    <div class="container">
+    <h2 class="big-names">CatPhotoApp</h2>  
     <p class="big-names">Click here to view more <a href="#">cat photos</a>.</p>
-
-    <a href="#"><img class="smaller-image" src="https://www.bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
-
-    <div>
-
+    <a href="#"><img class="smaller-image" src="https://freesvg.org/img/1288445526.png" alt="Cute kittens svg art."></a>
+    <div class="center-content">
       <p class="main-text">Things cats love:</p>
-
       <ul class="sub-text">
         <li>cat nip</li>
         <li>laser pointers</li>
@@ -52,46 +94,28 @@
       </ul>
     
       <p class="main-text">Top 3 things cats hate:</p>
-    
       <ol class="sub-text">
-        <li>flea treatment</li>
-        <li>thunder</li>
-        <li>other cats</li>
+        <li style="color: #ff3333">flea treatment</li>
+        <li style="color: #0088ff">thunder</li>
+        <li style="color: #905030">other cats</li>
       </ol>
-
     </div>
 
-    <form class="main-text" action="https://www.freecatphotoapp.com/submit-cat-photo">
-
+    <form id="cat-photo-form" class="main-text form-submit" action="https://www.freecatphotoapp.com/submit-cat-photo">
+      Is your cat an indoor or outdoor cat?<br/>
+      <label><input id="indoor" value="indoor" type="radio" name="indoor-outdoor" checked>Indoor</label>
+      <label><input id="outdoor" value="outdoor" type="radio" name="indoor-outdoor">Outdoor</label>
+      <br/>
+      What personality does your cat have?<br/>
+      <label><input id="loving" value="loving" type="checkbox" name="personality" checked>Loving</label>
+      <label><input id="lazy" value="lazy" type="checkbox" name="personality">Lazy</label>
+      <label><input id="energetic" value="energetic" type="checkbox" name="personality">Energetic</label>
+      <br>
       <input type="text" placeholder="cat photo URL" required>
       <button type="submit">Submit</button>
-      <br/><br/>
-
-      Is your cat an indoor or outdoor cat?<br/>
-
-      <label for="indoor">
-        <input id="indoor" value="indoor" type="radio" name="indoor-outdoor" checked>Indoor
-      </label>
-
-      <label for="outdoor">
-        <input id="outdoor" value="outdoor" type="radio" name="indoor-outdoor">Outdoor
-      </label>
-      <br/><br/>
-
-      What personality does your cat have?<br/>
-      <label for="loving">
-          <input id="loving" value="loving" type="checkbox" name="personality" checked>Loving
-      </label>
-
-      <label for="lazy">
-          <input id="lazy" value="lazy" type="checkbox" name="personality">Lazy
-      </label>
-
-      <label for="energetic">
-          <input id="energetic" value="energetic" type="checkbox" name="personality">Energetic
-      </label>
 
     </form>
+  </div>
   </body>
 </main>
 
