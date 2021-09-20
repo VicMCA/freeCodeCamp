@@ -43,7 +43,7 @@ function main() {
     // Below we'll see how to search for a specific key in an object
 
     if ('color' in circle) {
-        console.log(`The circle has a radius of ${circle.radius}`)
+        console.log(`The circle's color is' ${circle.color}`);
     }
 }
 

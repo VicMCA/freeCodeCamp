@@ -1,5 +1,5 @@
 function main() {
-// Example 01: Class, Factory and Constructor functions
+    // Example 01: Class, Factory and Constructor functions
 
     // Factory function
     function createCircle(radius) {
