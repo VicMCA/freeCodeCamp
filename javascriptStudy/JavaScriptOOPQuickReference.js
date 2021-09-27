@@ -12,7 +12,7 @@ const objSquare = {                             // Creating an object. Using "co
 
     draw() {                                    // A method of the object
         return (`I'm a ${this.vertices}-sided polygon, and my sides have ${this.length}mm in length.`
-        + `\nMy color is ${this.color} and I'm located at ${this.location.x} ${this.location.y}.`)
+            + `\nMy color is ${this.color} and I'm located at ${this.location.x} ${this.location.y}.`)
     }
 }
 
@@ -58,7 +58,7 @@ class ColorPolygon extends Polygon {            // Class extended from previous 
     }                                           // Parent class' getters, setters and methods are inherited
     changeMe() {                                // Inherited methods and properties can be overwritten.
         return (`I'm a method from the extended (or child) class.\n`
-        + `I'm clearly better since I remembered to finish my sentence with a period.`);
+            + `I'm clearly better since I remembered to finish my sentence with a period.`);
     }
 
 }
@@ -67,7 +67,7 @@ class ColorPolygon extends Polygon {            // Class extended from previous 
 function main() {
     /* OBJECT HANDLING */
     console.log("<< A nice square object >>\n")
-    
+
     console.log(objSquare.draw());              // Calling an object's normal method
     console.table(objSquare);                   // Printing an object's properties in a table
     objSquare.color = "ultramarine";            // Changing an object's property directly
@@ -85,7 +85,7 @@ function main() {
     console.log(square.revealSecret());
     console.table(square);                      // Printing an object's properties in a table
 
-    
+
     /* CREATING AN OBJECT USING THE SUBCLASS AND HANDLING IT */
     console.log("\n\n<< A nice COLORED square object created with a subclass >>\n")
 
@@ -94,14 +94,14 @@ function main() {
     console.log(colorSquare.changeMe());        // Using the changed inherited method
     console.log(colorSquare.revealSecret());
     console.table(colorSquare);                 // Printing an object's properties in a table
-    
+
     colorSquare._length = 20;                   // Altering a property with no getter/setter by referencing it directly
     colorSquare.color = "sea green";            // Altering a property using the setter
     colorSquare.location = { x: 5, y: 8 };      // Altering an object property using the setter
     colorSquare.changeSecret("The secret has changed");    // Changing a private property's value through a method
 
     console.log("\n\n<< The same nice COLORED square object but with CHANGES >>\n")
-    
+
     console.log(colorSquare.draw());            // Calling the method again to see differences
     console.log(colorSquare.revealSecret());    // Calling the method again to see change in the private property
     console.table(colorSquare);                 // Printing to a table to see every difference
