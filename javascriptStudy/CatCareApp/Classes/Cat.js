@@ -1,4 +1,4 @@
-class Cat {
+export class Cat {
     constructor(name = "", age = 0, furType = "", furColor = "",
     owner = "", foodType = "", checkInDate = new Date()) {
             this.name = name;
@@ -12,7 +12,3 @@ class Cat {
             this.checkOutDate = undefined;
     }
 }
-
-const teste = new Cat("Burninator", 10, "Long Dense", "Striped Orange", "Trogdor", "Veggies");
-
-console.table(teste);
