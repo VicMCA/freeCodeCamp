@@ -1,1 +1,13 @@
-{"type": "module" }
+{
+  "type": "module",
+  "name": "catcareapp",
+  "version": "1.0.0",
+  "description": "App to manage cat-sitting businesses",
+  "main": "CatCareApp.js",
+  "scripts": {
+    "coverage": "jest --coverage",
+    "test": "jest"
+  },
+  "author": "Victor C (VicMCA)",
+  "license": "ISC"
+}
