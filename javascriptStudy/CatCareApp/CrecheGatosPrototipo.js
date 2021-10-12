@@ -1,4 +1,4 @@
-const { ExitStatus } = require('typescript');
+import * as read from 'readline-sync'
 
 class Gato {
     constructor(name, age) { // It'll receive 2 parameters
@@ -25,7 +25,7 @@ let infoPacote = {};
 var gato;
 
 function main() {
-    const read = require('readline-sync');
+    
 
     console.log("              _,'\\               _.-''``-...___..--';)\n"+
     "             /ŋ   \\'.      __..-'        ,--...--'''\n"+
@@ -42,10 +42,10 @@ function main() {
 
 
 function menuInicial() {
-    const read = require('readline-sync');    
+        
     
     console.log('🧶🐈 O que deseja fazer? Digite o número da opção escolhida:');
-    resposta = read.question('[1] Cadastrar bichano\n[2] Consultar bichano\n[3] Administrar bichano\n[4] Sair\n>> ');
+    let resposta = read.question('[1] Cadastrar bichano\n[2] Consultar bichano\n[3] Administrar bichano\n[4] Sair\n>> ');
 
     switch (resposta) {
         case '1':
@@ -80,12 +80,12 @@ function menuInicial() {
 function criarCadastro() {
     cadastro(infoPacote);
     gatoLista.push(infoPacote['nome']);
-    return gato = eval(`${gatoLista[1]} = new Gato('${infoPacote['nome']}', '${infoPacote['idade']}');`);
+    return gato = eval(`let ${gatoLista[1]} = new Gato('${infoPacote['nome']}', '${infoPacote['idade']}');`);
 }
 
 
 function cadastro(infoPacote) {
-    const read = require('readline-sync');
+    
 
     let nome = read.question('Digite o nome do gato >> ');
     let idade = read.question('Digite a idade do gato >> ');
@@ -98,7 +98,7 @@ function cadastro(infoPacote) {
 
 
 function teste() {
-    const read = require('readline-sync');
+    
     console.log("Lista de gatos cadastrados: " + gatoLista);
 
     let nome = read.question('Qual bichano deseja consultar?\n>> ');
@@ -111,8 +111,4 @@ function encerrarPrograma() {
     return 1;
 }
 
-
-if (require.main === module) {
-    main();
-}
-
+main();

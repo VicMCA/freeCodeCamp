@@ -25,9 +25,11 @@ Requerimentos >>
     - Funções externas:
       Busca por nome, busca por dono, cadastro dos gatos, autosave, autoload */
 
+import * as read from 'readline-sync';
+
 class Gato {
     constructor(infoPacote) {
-        const read = require('readline-sync');
+        
 
         let fome = 10;
         let briga = false;
@@ -168,7 +170,7 @@ cat ascii
 const gatosLista = [], donosLista = [], infoPacote = {};
 
 function main() {
-    const read = require('readline-sync');
+    
 
     let resposta = '';
 /*
@@ -230,7 +232,7 @@ function main() {
 
 function acoesGatos(qualGato) {
     /* Ações: alimentar, brincar, carinho, apartar, dormir, chamar dono, chamar vet */
-    const read = require('readline-sync');
+    
     
     console.log("Ações disponíveis:");
 
@@ -275,7 +277,7 @@ function escolhaGato(gatosLista) {
     dataEntrada, dataSaida
     necessVet, isCastrado, isVermifugado, familiares
     */
-    const read = require('readline-sync');
+    
 
     console.log('Confira abaixo a lista de bichanos cadastrados:\n' + gatosLista);
     qualGato = read.question('Com qual deles deseja interagir? Digite o nome exatamente como exibido: ');
@@ -341,7 +343,7 @@ function cadastro() {
 
 function questoesCadastro(infoDado, questoesDado) {
     // Status: funcionando
-    const read = require('readline-sync');
+    
 
     for (let key in infoDado) {
         while (infoDado[key] == null || infoDado[key] == undefined || infoDado[key] == '') {
@@ -355,7 +357,4 @@ function questoesCadastro(infoDado, questoesDado) {
     return infoDado;
 }
 
-
-if (require.main === module) {
-    main();
-}
+main();
