@@ -1,6 +1,7 @@
 export class Cat {
-    constructor(name = "", age = 0, furType = "", furColor = "",
-    owner = "", foodType = "", checkIn = [2020, 1, 1, 8]) {
+    constructor(name = "Cat", age = 1, furType = "Fur type",
+    furColor = "Fur color", owner = "Owner",
+    foodType = "Food type", checkIn = [2020, 0, 1, 5]) {
         this._name = name;
         this._age = age;
         this._furType = furType;

@@ -1,6 +1,6 @@
 export class Address {
     constructor(street = "", numberHouse = "", subAddress = "",
-    postalCode = "", quarter = "", city = "", state = "") {
+    postalCode = "", quarter = "", city = "Recife", state = "Brazil") {
         this._street = street;
         this._numberHouse = numberHouse;
         this._subAddress = subAddress;

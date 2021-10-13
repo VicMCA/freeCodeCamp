@@ -1,14 +1,16 @@
 import { Address } from './Address.js';
+import { Cat } from './Cat.js';
 
 export class Client {
     constructor(name = "", phone = "", email = "", address = new Address(),
-    cats = "", registrationDate = [2020, 1, 1, 1]) {
+    registrationDate = [2020, 0, 1, 5],
+    cats = new Cat()) {
         this._name = name;
         this._phone = phone;
         this._email = email;
         this._address = address;
-        this._cats = cats;
         this._registrationDate = new Date(...registrationDate);
+        this._cats = cats;
     }
     // Abridged getters
     get name() { return this._name; }
